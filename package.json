@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heartland/ui": "github:vickymuller-md/heartland-ui#v0.1.1",
+    "@heartland/ui": "github:vickymuller-md/heartland-ui#v0.2.0",
     "clsx": "^2.1.1",
     "lucide-react": "^1.7.0",
     "next": "^16.2.1",

@@ -6,6 +6,7 @@
     --font-sans: var(--font-sans);
     --font-editorial: var(--font-editorial);
     --font-display: var(--font-display);
+    --font-mono-editorial: var(--font-mono-editorial);
 }
 
 :root {

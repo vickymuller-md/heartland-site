@@ -6,7 +6,7 @@ import './globals.css';
 const sora = Sora({
   subsets: ['latin'],
   variable: '--font-editorial',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
@@ -21,6 +21,13 @@ const instrumentSerif = Instrument_Serif({
 const geist = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
+});
+
+const soraMono = Sora({
+  subsets: ['latin'],
+  variable: '--font-mono-editorial',
+  weight: ['400', '500'],
   display: 'swap',
 });
 
@@ -55,14 +62,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${instrumentSerif.variable} ${geist.variable}`}
+      className={`${sora.variable} ${instrumentSerif.variable} ${geist.variable} ${soraMono.variable}`}
     >
-      <body className="min-h-screen antialiased">
+      <body className="min-h-screen flex flex-col bg-terminal font-editorial text-cool antialiased selection:bg-alert/40 selection:text-cool">
         <Masthead
           currentSite="home"
-          cta={{ label: 'Read the protocol', href: 'https://doi.org/10.5281/zenodo.18566403', external: true }}
+          navItems={[
+            { label: 'Protocol', href: '#the-gap' },
+            { label: 'Modules', href: '#modules' },
+            { label: 'Tiers', href: '#tiers' },
+            { label: 'Evidence', href: '#evidence' },
+          ]}
+          secondaryCta={{
+            label: 'App',
+            href: 'https://app.heartlandprotocol.org',
+            external: true,
+          }}
+          cta={{
+            label: 'Read the protocol',
+            href: 'https://doi.org/10.5281/zenodo.18566403',
+            external: true,
+          }}
         />
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
         <Colophon
           currentSite="home"
           version="v3.2"
