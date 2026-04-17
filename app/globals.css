@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import '@heartland/ui/css/theme.css';
+
+@theme inline {
+    --font-sans: var(--font-sans);
+    --font-editorial: var(--font-editorial);
+    --font-display: var(--font-display);
+}
+
+:root {
+    --radius: 0.625rem;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    background: var(--color-terminal);
+    color: var(--color-cool);
+    font-family: var(--font-editorial), 'Sora', system-ui, sans-serif;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-alert);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
