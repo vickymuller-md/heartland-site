@@ -756,8 +756,11 @@ function Research() {
               Peer-reviewed &amp; permanently archived.
             </h2>
             <p className="mt-5 text-[14.5px] leading-relaxed text-cool/70">
-              HEARTLAND v3.2 is deposited under permanent DOIs, synthesizing more than
-              60 clinical trials and implementation studies (2018–2025).
+              HEARTLAND v3.2 is published in Cureus (a Springer Nature journal),
+              indexed in PubMed — PMID 41948265 — and deposited under permanent
+              DOIs, synthesizing more than 60 clinical trials and implementation
+              studies (2018–2025). Two companion systematic reviews are now
+              published and PubMed-indexed as well.
             </p>
           </div>
 
@@ -765,9 +768,21 @@ function Research() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <ResearchCard
                 title="Cureus"
-                subtitle="Peer-reviewed manuscript"
+                subtitle="PubMed-indexed · PMID 41948265"
                 href={HEARTLAND_EXTERNAL_LINKS.cureus}
-                note="Full methods, results, discussion."
+                note="The HEARTLAND Protocol — full methods, results, discussion."
+              />
+              <ResearchCard
+                title="GLP-1 RA · Systematic Review"
+                subtitle="Cureus · PMID 42292722"
+                href="https://doi.org/10.7759/cureus.110621"
+                note="Meta-analysis across the heart failure spectrum (Jun 2026)."
+              />
+              <ResearchCard
+                title="Remote Monitoring · Systematic Review"
+                subtitle="Cureus · PMID 42164012"
+                href="https://doi.org/10.7759/cureus.109198"
+                note="Meta-analysis with trial sequential analysis (May 2026)."
               />
               <ResearchCard
                 title="Zenodo"
