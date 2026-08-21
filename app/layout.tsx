@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Sora, Instrument_Serif, Geist } from 'next/font/google';
 import { Masthead, Colophon } from '@heartland/ui';
+import { WebAnalytics } from './web-analytics';
 import './globals.css';
 
 const sora = Sora({
@@ -75,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ]}
           secondaryCta={{
             label: 'App',
-            href: 'https://app.heartlandprotocol.org',
+            href: 'https://app.heartlandprotocol.org?utm_source=heartlandprotocol.org&utm_medium=referral&utm_campaign=ecosystem_navigation',
             external: true,
           }}
           cta={{
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           version="v3.2"
           description="Heart failure Evidence-based Access in Rural Treatment, Linking Advanced Network Delivery — a peer-reviewed implementation framework for primary care-led heart failure care in rural and resource-limited U.S. settings."
         />
+        <WebAnalytics />
       </body>
     </html>
   );

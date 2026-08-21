@@ -1,5 +1,11 @@
 import { HEARTLAND_NETWORK, HEARTLAND_EXTERNAL_LINKS } from '@heartland/ui';
 
+const APP_CAMPAIGN = 'utm_source=heartlandprotocol.org&utm_medium=referral&utm_campaign=ecosystem_navigation';
+
+function appHref(path = ''): string {
+  return `https://app.heartlandprotocol.org${path}?${APP_CAMPAIGN}`;
+}
+
 // ---------------------------------------------------------------------------
 // Content tables
 // ---------------------------------------------------------------------------
@@ -41,7 +47,7 @@ const MODULES: ModuleSpec[] = [
           'Supplements — does not replace — MAGGIC or SHFM. Matches monitoring intensity to individual risk.',
       },
     ],
-    artifact: { label: 'Open risk calculator', href: 'https://app.heartlandprotocol.org/risk-calculator' },
+    artifact: { label: 'Open risk calculator', href: appHref('/risk-calculator') },
     callout:
       'Social isolation is associated with a 3.74× increase in heart-failure mortality. Distance >50 miles to cardiology predicts readmission. HEARTLAND captures both.',
     label: 'Pragmatic',
@@ -69,7 +75,7 @@ const MODULES: ModuleSpec[] = [
           'K+ > 5.5 → hold MRA and ARNI. eGFR < 30 → avoid SGLT2i. ACEi→ARNI requires 36-hour washout (PARADIGM-HF).',
       },
     ],
-    artifact: { label: 'Open GDMT pathway', href: 'https://app.heartlandprotocol.org/gdmt-pathway' },
+    artifact: { label: 'Open GDMT pathway', href: appHref('/gdmt-pathway') },
     callout:
       '"Generic therapy is superior to no therapy." Never delay treatment waiting for paperwork — an eligible patient on $15/month generics outlives one untreated.',
     label: 'Established',
@@ -97,7 +103,7 @@ const MODULES: ModuleSpec[] = [
           'Rural Navajo Nation RCT: voice telephone was the driver of GDMT success — not the app.',
       },
     ],
-    artifact: { label: 'Open titration checklist', href: 'https://app.heartlandprotocol.org/titration-checklist' },
+    artifact: { label: 'Open titration checklist', href: appHref('/titration-checklist') },
     callout:
       '"Broadband failure is not a care failure." The Hozhó Trial proved a dumbphone call reaches the same clinical endpoint as a smart-home sensor.',
     label: 'Established',
@@ -125,7 +131,7 @@ const MODULES: ModuleSpec[] = [
           'Structured nurse call: weight delta, symptom check, adherence confirmation, any ED visit. Titrate diuretic by phone if needed.',
       },
     ],
-    artifact: { label: 'Open discharge bundle', href: 'https://app.heartlandprotocol.org/discharge' },
+    artifact: { label: 'Open discharge bundle', href: appHref('/discharge') },
     callout:
       'A 68-year-old on new ARNI + beta-blocker needs three things: written + verbal teaching, a 7-day pill pack, and a Day-2 phone call asking "how many pounds?"',
     label: 'Established',
@@ -153,7 +159,7 @@ const MODULES: ModuleSpec[] = [
           'CPT 99453–99458 (RPM) and 98975–98981 (RTM). Tier 2/3 facility × 20 high-risk patients ≈ $3,000–4,000/month net revenue, which offsets kit + staff.',
       },
     ],
-    artifact: { label: 'Open remote monitoring', href: 'https://app.heartlandprotocol.org/remote-monitoring' },
+    artifact: { label: 'Open remote monitoring', href: appHref('/remote-monitoring') },
     callout:
       'TIM-HF2 showed the greatest mortality benefit in patients living farthest from cardiology. Human oversight beats algorithm alerts.',
     label: 'Established',
@@ -181,7 +187,7 @@ const MODULES: ModuleSpec[] = [
           'Ferritin < 100 or TSAT < 20 % with Hgb < 12 → IV ferric carboxymaltose. Oral iron is poorly absorbed in splanchnic congestion.',
       },
     ],
-    artifact: { label: 'Open comorbidity manager', href: 'https://app.heartlandprotocol.org/comorbidity-manager' },
+    artifact: { label: 'Open comorbidity manager', href: appHref('/comorbidity-manager') },
     callout:
       'Untreated OSA sabotages GDMT. A patient on optimal ARNI/BB/MRA/SGLT2i but with undiagnosed apnea stays symptomatic. STOP-BANG takes 2 minutes.',
     label: 'Established',
@@ -209,7 +215,7 @@ const MODULES: ModuleSpec[] = [
           '6–8 stable HF patients + 1 provider + 1 nurse educator for 90 min. 3× throughput vs individual 30-min visits; peer accountability improves adherence.',
       },
     ],
-    artifact: { label: 'Open SBAR generator', href: 'https://app.heartlandprotocol.org' },
+    artifact: { label: 'Open SBAR generator', href: appHref() },
     callout:
       'A clear SBAR tells the PCP exactly what to do next. Without one, everyone defaults to "call cardiology" — and care stalls.',
     label: 'Established',
@@ -237,7 +243,7 @@ const MODULES: ModuleSpec[] = [
           '8–12 team members with pharmacist + social worker. Rapid-sequence GDMT; serves as hub for 3–4 satellites on the HEARTLAND framework.',
       },
     ],
-    artifact: { label: 'Open tier selector', href: 'https://app.heartlandprotocol.org/tier-selector' },
+    artifact: { label: 'Open tier selector', href: appHref('/tier-selector') },
     callout:
       '"Perfect is not the enemy of good." A Tier 1 CAH starting HEARTLAND tomorrow and measuring "more patients on GDMT than yesterday" is already winning.',
     label: 'Pragmatic',
@@ -369,7 +375,7 @@ function Hero() {
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
             <a
-              href="https://app.heartlandprotocol.org"
+              href={appHref()}
               className="inline-flex items-center gap-2 text-[14px] text-cool/80 transition-colors hover:text-alert"
             >
               Open the clinical app
@@ -863,7 +869,7 @@ function Audience() {
             body="MD, DO, NP, or PA caring for heart failure patients in a rural or underserved setting."
             read="The protocol (60 min) + Module 2 (GDMT) quick-reference."
             doLabel="Initiate ARNI + beta-blocker before your next discharge."
-            href="https://app.heartlandprotocol.org/gdmt-pathway"
+            href={appHref('/gdmt-pathway')}
             hrefLabel="Open GDMT pathway"
           />
           <AudienceCard
@@ -871,7 +877,7 @@ function Audience() {
             body="Hospital leadership, nurse informatics, or implementation science lead."
             read="Module 8 (Implementation) + the Tier Selector quiz."
             doLabel="Pick your tier. Assign a champion. Schedule a 15-min RN training."
-            href="https://app.heartlandprotocol.org/tier-selector"
+            href={appHref('/tier-selector')}
             hrefLabel="Open tier selector"
           />
           <AudienceCard
@@ -1050,7 +1056,7 @@ function ClosingCta() {
             title="Adopt"
             body="Take the 1-minute tier quiz, follow the 14-day launch plan, and initiate your first patient on GDMT tomorrow."
             ctaLabel="Open the clinical app"
-            ctaHref="https://app.heartlandprotocol.org"
+            ctaHref={appHref()}
           />
           <ClosingCard
             title="Cite"
