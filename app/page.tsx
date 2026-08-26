@@ -808,6 +808,12 @@ function Research() {
                 href={HEARTLAND_EXTERNAL_LINKS.medrxiv}
                 note="Validation studies linked from Zenodo."
               />
+              <ResearchCard
+                title="Software Heritage"
+                subtitle="Permanent source snapshot"
+                href="https://archive.softwareheritage.org/swh:1:snp:b7570a1570f1c42c8282ad5a72b62d3a54f2baa8/"
+                note="Immutable snapshot of this public site repository."
+              />
             </div>
 
             <div className="rounded-2xl border border-grid bg-terminal p-6">
