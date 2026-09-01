@@ -314,6 +314,65 @@ const EVIDENCE_STYLES: Record<EvidenceLabel, string> = {
   Pragmatic: 'bg-stone/15 text-stone',
 };
 
+const SANDBOX_JOURNEY = [
+  {
+    step: '01',
+    title: 'Run the day',
+    body: 'Replay 500, 2,500, or 5,000 fictional check-ins across five simulated clinic days.',
+  },
+  {
+    step: '02',
+    title: 'Find the exceptions',
+    body: 'Registered rules and monitoring-gap policies build the review queue; the model does not set priority.',
+  },
+  {
+    step: '03',
+    title: 'Work one case',
+    body: 'Open the source-aware brief, inspect trends, place a simulated call, and compare a draft before accepting it.',
+  },
+  {
+    step: '04',
+    title: 'Close the loop',
+    body: 'Document the fictional outcome, assign the next owner, and inspect the key fields in a decision receipt.',
+  },
+];
+
+const SANDBOX_CAPABILITIES = [
+  {
+    label: 'Command Center + Copilot',
+    title: 'A reviewable morning round',
+    body: 'Run three simulated calls, follow progress, hear a text-and-voice morning brief, ask the queue, and inspect the read-only tool trace behind each answer.',
+  },
+  {
+    label: 'Outreach + Daily Loop',
+    title: 'Displayed exceptions keep their source context',
+    body: 'Source transcript, structured extraction, unknowns, rule ID, owner, and fictional outcome stay together. Compare proposed Situation and Background wording with accept, reject, and undo; Assessment and Recommendation remain provider-owned.',
+  },
+  {
+    label: 'Patient 360 + Pathways + Coordination',
+    title: 'One case, end to end',
+    body: 'Review a 60-second brief, source freshness, trends, safety data, protocol context, ownership, deadline, and the next handoff in the fictional workflow.',
+  },
+  {
+    label: 'Patient Today + Impact',
+    title: 'Bilingual check-ins with visible limits',
+    body: 'Try English or Spanish by tap, text, or optional voice. Missing answers route to review; Impact reports tour behavior, not clinical efficacy.',
+  },
+  {
+    label: 'Protocol Guide + Public Tools',
+    title: 'Ask and explain without changing the result',
+    body: 'Ask a bounded assistant about published protocol content with references, or request a plain-language explanation of a deterministic tool result. The AI layer does not recalculate the score or threshold.',
+  },
+];
+
+const RESPONSIBILITY_LAYERS = [
+  ['Synthetic input', 'Fictional values only'],
+  ['AI language', 'Converses, extracts, drafts, narrates'],
+  ['Registered rules', 'Rules and gap policies set simulated routing'],
+  ['Optional voice', 'Microphone off until visitor opt-in'],
+  ['Human review', 'Verifies evidence and authorizes the next action'],
+];
+
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
@@ -324,6 +383,7 @@ export default function HomePage() {
       <Hero />
       <Problem />
       <ModuleIndex />
+      <EvidenceLab />
       <ModuleDeepDives />
       <Tiers />
       <FourteenDayPlan />
@@ -375,17 +435,19 @@ function Hero() {
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
             <a
-              href={appHref()}
+              href={appHref('/sandbox')}
               className="inline-flex items-center gap-2 text-[14px] text-cool/80 transition-colors hover:text-alert"
             >
-              Open the clinical app
+              Explore the synthetic sandbox
               <span>→</span>
             </a>
           </div>
 
           <p className="mt-10 max-w-md text-[12.5px] leading-relaxed text-stone">
-            Built for licensed clinicians. Not a medical device. Not for direct patient care.
-            Synthetic data only — no PHI is ever collected.
+            Public synthetic demonstration only. Do not enter real patient,
+            personal, or health information. Privacy-minimized interaction
+            metadata may be recorded. This release does not establish regulatory
+            authorization or replace clinical judgment.
           </p>
         </div>
 
@@ -468,7 +530,7 @@ function ModuleIndex() {
       <div className="mx-auto max-w-[1200px] px-6 py-24">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-stone">How it works</p>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-stone">Protocol architecture</p>
             <h2 className="mt-3 text-[clamp(1.8rem,3.2vw,2.6rem)] leading-[1.15] tracking-tight text-cool">
               Eight modules, one workflow.
             </h2>
@@ -501,6 +563,168 @@ function ModuleIndex() {
         </div>
       </div>
     </section>
+  );
+}
+
+function EvidenceLab() {
+  const layerDots = ['bg-stone', 'bg-violet-400', 'bg-signal', 'bg-blue-400', 'bg-alert'];
+
+  return (
+    <section id="evidence-lab" className="scroll-mt-20 border-b border-grid bg-panel">
+      <div className="mx-auto max-w-[1200px] px-6 py-24">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-alert">
+              Public synthetic Evidence Lab
+            </p>
+            <h2 className="mt-4 max-w-4xl text-[clamp(2rem,4.4vw,3.7rem)] leading-[1.06] tracking-tight text-cool">
+              Watch one clinic day move from{' '}
+              <span className="font-display italic text-alert">population signal</span>{' '}
+              to human action.
+            </h2>
+            <p className="mt-6 max-w-3xl text-[16px] leading-relaxed text-cool/75">
+              Explore a full fictional workflow: population replay, simulated outreach,
+              bilingual check-ins, a reviewable morning brief, Patient 360, protocol
+              pathways, coordination, assisted SBAR wording, and closed-loop documentation.
+            </p>
+          </div>
+          <div className="lg:col-span-4 lg:text-right">
+            <a
+              href={appHref('/sandbox')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-alert px-6 text-[14px] font-medium text-cool transition-colors hover:bg-cool hover:text-terminal"
+            >
+              Explore the full synthetic sandbox →
+            </a>
+            <p className="mt-3 text-[11.5px] leading-relaxed text-stone">
+              No account · fictional data · no real calls or clinical records
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-4">
+          {SANDBOX_JOURNEY.map((item) => (
+            <article key={item.step} className="rounded-2xl border border-grid bg-terminal p-5">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-alert">
+                  {item.title}
+                </p>
+                <span className="font-mono-editorial text-[11px] text-stone">{item.step}</span>
+              </div>
+              <p className="mt-4 text-[13.5px] leading-relaxed text-cool/70">{item.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
+          <div className="rounded-3xl border border-grid bg-terminal-deep p-6 md:p-8 lg:col-span-8">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.2em] text-stone">
+                  Default reference run
+                </p>
+                <h3 className="mt-2 text-[22px] font-medium text-cool">
+                  A reproducible synthetic workflow funnel.
+                </h3>
+              </div>
+              <p className="max-w-sm text-[11.5px] leading-relaxed text-stone sm:text-right">
+                Illustrative deterministic replay — not clinical performance,
+                observed productivity, or a staffing claim.
+              </p>
+            </div>
+
+            <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <LabMetric value="2,500" label="synthetic check-ins" />
+              <LabMetric value="98.1%" label="did not enter review" accent />
+              <LabMetric value="47" label="review items" />
+            </div>
+
+            <div className="mt-8 border-t border-grid pt-7">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-stone">
+                Responsibility stays visible
+              </p>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-5">
+                {RESPONSIBILITY_LAYERS.map(([label, detail], index) => (
+                  <div key={label} className="rounded-xl border border-grid bg-panel p-4">
+                    <div className="flex items-center gap-2">
+                      <span className={`h-2 w-2 rounded-full ${layerDots[index]}`} aria-hidden="true" />
+                      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-cool">
+                        {label}
+                      </p>
+                    </div>
+                    <p className="mt-2 text-[11.5px] leading-relaxed text-cool/60">{detail}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 text-[13px] leading-relaxed text-cool/75">
+                AI handles language. Registered rules set simulated dispositions. Voice
+                is optional. A person verifies the evidence and authorizes the next action.
+              </p>
+            </div>
+          </div>
+
+          <aside className="rounded-3xl border border-alert/40 bg-alert/10 p-6 md:p-8 lg:col-span-4" aria-labelledby="receipt-title">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-alert">Decision Receipt</p>
+            <h3 id="receipt-title" className="mt-2 text-[22px] font-medium text-cool">
+              One answer. Key handoffs visible.
+            </h3>
+            <dl className="mt-6 space-y-4">
+              <ReceiptRow label="Synthetic source" value="Weight 179.5 lb; swelling worse; breathing answer missing." />
+              <ReceiptRow label="AI extraction" value="Weight 179.5 lb · edema 2 · dyspnea unknown." />
+              <ReceiptRow label="Registered rule" value="+3 lb in 2 days → weight_gain_3lb_2d → simulated escalation." />
+              <ReceiptRow label="Human next action" value="Verify source data and review follow-up today." />
+            </dl>
+            <p className="mt-6 border-t border-alert/30 pt-5 text-[11.5px] leading-relaxed text-cool/65">
+              AI structures the source; it does not make the final disposition.
+              Unknown stays unknown, and missing required answers route to review.
+            </p>
+          </aside>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {SANDBOX_CAPABILITIES.map((capability) => (
+            <article key={capability.label} className="rounded-2xl border border-grid bg-terminal p-6">
+              <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-alert">
+                {capability.label}
+              </p>
+              <h3 className="mt-3 text-[18px] font-medium text-cool">{capability.title}</h3>
+              <p className="mt-3 text-[13.5px] leading-relaxed text-cool/70">{capability.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <aside className="mt-8 rounded-2xl border border-grid bg-terminal px-6 py-5" role="note">
+          <p className="text-[12.5px] leading-relaxed text-cool/70">
+            <span className="font-medium text-cool">Safety boundary:</span>{' '}
+            selected emergency phrases and obvious identifier patterns screen visitor input;
+            supported generated-language paths check selected prescriptive wording;
+            missing required answers fail toward human review. Demonstration only — do not
+            enter real patient, personal, or health information.
+          </p>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+function LabMetric({ value, label, accent = false }: { value: string; label: string; accent?: boolean }) {
+  return (
+    <div className="rounded-xl border border-grid bg-panel p-4 text-center">
+      <p className={`text-[clamp(1.55rem,3vw,2.35rem)] font-medium leading-none ${accent ? 'text-alert' : 'text-cool'}`}>
+        {value}
+      </p>
+      <p className="mt-2 text-[10px] uppercase tracking-[0.12em] text-stone">{label}</p>
+    </div>
+  );
+}
+
+function ReceiptRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-alert/20 bg-terminal/70 p-4">
+      <dt className="text-[10.5px] font-medium uppercase tracking-[0.14em] text-alert">{label}</dt>
+      <dd className="mt-2 text-[12.5px] leading-relaxed text-cool/75">{value}</dd>
+    </div>
   );
 }
 
@@ -1018,14 +1242,14 @@ function Disclaimer() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <aside className="rounded-2xl border border-grid bg-panel p-7">
             <p className="text-[11px] uppercase tracking-[0.2em] text-alert">
-              Clinical decision support
+              Implementation support
             </p>
             <p className="mt-3 text-[14px] leading-relaxed text-cool/80">
-              This protocol and its companion tools are designed for healthcare
-              professionals as clinical decision-support resources. They do not provide
-              medical diagnoses, substitute for clinical judgment, treat individual
-              patients, or replace licensed providers. Professional use only. Not for
-              direct patient care.
+              The protocol and companion tools provide educational implementation
+              support for licensed professionals. This release does not establish FDA
+              clearance or authorization, resolve medical-device classification, replace
+              clinical judgment, or supersede institutional policy. Public demonstrations
+              use fictional scenarios; authenticated workspaces remain controlled evaluation only.
             </p>
           </aside>
 
@@ -1059,10 +1283,10 @@ function ClosingCta() {
             ctaHref={HEARTLAND_EXTERNAL_LINKS.zenodo}
           />
           <ClosingCard
-            title="Adopt"
-            body="Take the 1-minute tier quiz, follow the 14-day launch plan, and initiate your first patient on GDMT tomorrow."
-            ctaLabel="Open the clinical app"
-            ctaHref={appHref()}
+            title="Explore"
+            body="Run a fictional clinic day end to end. Inspect the displayed source, registered rule, draft, handoff, and human checkpoint."
+            ctaLabel="Open the synthetic sandbox"
+            ctaHref={appHref('/sandbox')}
           />
           <ClosingCard
             title="Cite"
