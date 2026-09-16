@@ -8,3 +8,7 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 .claude/
+.codex/
+AGENTS.md
+CLAUDE.md
+graphify-out/

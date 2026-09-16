@@ -177,6 +177,19 @@ const SANDBOX_CAPABILITIES = [
   },
 ];
 
+// Archived software/document identities of each ecosystem resource (Zenodo
+// version DOIs observed on 2026-09-11). The Toolkit and the article keep their
+// own identities elsewhere on this page; these never stand in for them.
+const ECOSYSTEM_RELEASES: Partial<Record<string, { version: string; doi: string }>> = {
+  app: { version: 'v1.9.0', doi: '10.5281/zenodo.22233054' },
+  scoring: { version: 'v1.0.0', doi: '10.5281/zenodo.19634995' },
+  guide: { version: 'v0.1.0', doi: '10.5281/zenodo.19634993' },
+  atlas: { version: 'v0.2.0', doi: '10.5281/zenodo.21323595' },
+  redcap: { version: 'v1.0.2', doi: '10.5281/zenodo.22132635' },
+  synthetic: { version: 'v0.2.2', doi: '10.5281/zenodo.22086443' },
+  fhir: { version: 'v0.1.1', doi: '10.5281/zenodo.19634998' },
+};
+
 const RESPONSIBILITY_LAYERS = [
   ['Synthetic input', 'Fictional values only'],
   ['AI language', 'Converses, extracts, drafts, narrates'],
@@ -348,7 +361,8 @@ function EvidenceLab() {
             ))}
           </dl>
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
+        <p className="mt-10 text-base leading-relaxed text-cool/80">The published App baseline exposes nine capabilities, grouped below by the five surfaces where they appear.</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
           {SANDBOX_CAPABILITIES.map(capability => (
             <article key={capability.label} className="rounded-2xl border border-grid bg-terminal p-6">
               <p className="text-sm font-semibold text-[#b4372d]">{capability.label}</p>
@@ -550,24 +564,33 @@ function Ecosystem() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {HEARTLAND_NETWORK.filter((s) => s.id !== 'home').map((site) => (
-            <a
-              key={site.id}
-              href={site.url}
-              className="group flex flex-col rounded-2xl border border-grid bg-panel p-6 transition-transform hover:-translate-y-0.5 hover:border-alert"
-            >
-              <p className="text-base font-medium uppercase tracking-[0.2em] text-[#b4372d]">
-                {site.shortLabel}
-              </p>
-              <h3 className="mt-3 text-[17px] font-medium text-cool">{site.id === 'app' ? 'Clinical Implementation App' : site.label}</h3>
-              <p className="mt-3 text-base leading-relaxed text-cool/70">
-                {site.id === 'app' ? 'Educational companion with synthetic workflows, calculators, bounded AI and human review.' : site.tagline}
-              </p>
-              <p className="mt-6 text-base text-cool/75 transition-colors group-hover:text-[#b4372d]">
-                {site.url.replace('https://', '')} →
-              </p>
-            </a>
-          ))}
+          {HEARTLAND_NETWORK.filter((s) => s.id !== 'home').map((site) => {
+            const release = ECOSYSTEM_RELEASES[site.id];
+            return (
+              <article key={site.id} className="flex flex-col rounded-2xl border border-grid bg-panel p-6 transition-transform hover:-translate-y-0.5 hover:border-alert">
+                <a href={site.url} className="group flex flex-1 flex-col">
+                  <p className="text-base font-medium uppercase tracking-[0.2em] text-[#b4372d]">
+                    {site.shortLabel}
+                  </p>
+                  <h3 className="mt-3 text-[17px] font-medium text-cool">{site.id === 'app' ? 'Clinical Implementation App' : site.label}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-cool/70">
+                    {site.id === 'app' ? 'Educational companion with synthetic workflows, calculators, bounded AI and human review.' : site.tagline}
+                  </p>
+                  <p className="mt-6 text-base text-cool/75 transition-colors group-hover:text-[#b4372d]">
+                    {site.url.replace('https://', '')} →
+                  </p>
+                </a>
+                {release && (
+                  <p className="mt-4 border-t border-grid pt-4 text-sm leading-relaxed text-cool/70">
+                    Archived release {release.version} ·{' '}
+                    <a href={`https://doi.org/${release.doi}`} className="underline decoration-cool/30 underline-offset-4 transition-colors hover:text-[#b4372d]">
+                      DOI {release.doi}
+                    </a>
+                  </p>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

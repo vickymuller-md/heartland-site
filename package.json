@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/verify-home.mjs",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@heartland/ui": "github:vickymuller-md/heartland-ui#v0.2.1",
+    "@heartland/ui": "github:vickymuller-md/heartland-ui#v0.2.3",
     "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.7.0",

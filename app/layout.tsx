@@ -34,6 +34,7 @@ const soraMono = Sora({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://heartlandprotocol.org'),
+  alternates: { canonical: '/' },
   title: {
     default: 'HEARTLAND Protocol — Heart failure care for rural America',
     template: '%s · HEARTLAND Protocol',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'HEARTLAND Protocol',
     description: 'Heart failure care where there is no cardiologist.',
   },

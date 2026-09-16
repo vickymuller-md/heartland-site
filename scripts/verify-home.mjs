@@ -40,6 +40,12 @@ for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.19101219', '10.5281/
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing exact publication link: ${doi}`);
 }
 check(text.includes('Toolkit V3.3') && text.includes('App v1.9.0'), 'Toolkit and App versions must be distinct');
+check(text.includes('nine capabilities'), 'Capability count must match the App landing');
+for (const doi of ['10.5281/zenodo.19634995', '10.5281/zenodo.19634993', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.22086443', '10.5281/zenodo.19634998']) {
+  check(visible.includes(`href="https://doi.org/${doi}"`), `Missing companion archive link: ${doi}`);
+}
+check(text.includes('Rural Cardiology Desert Atlas'), 'Atlas card must use its published name');
+check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.19101219"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
 check(text.includes('did not evaluate the HEARTLAND App or its AI'), 'Studies must not imply product validation');
 check(visible.includes('href="https://app.heartlandprotocol.org/sandbox?utm_source=heartlandprotocol.org&amp;utm_medium=referral&amp;utm_campaign=ecosystem_navigation"'), 'Preserve the sandbox referral destination');
 check(!/18566403|v3\.2|Not a medical device|No patient health information is ever stored|first titration in 14 days|same clinical endpoint as a smart-home sensor|Initiate ARNI|98\.1%|outlives|net revenue|decision.support PWA/i.test(text), 'Stale identity, promotional efficacy or activation claim remains');
