@@ -17,7 +17,7 @@ function section(id, tag = 'section') {
 }
 
 check(/<!DOCTYPE html>/i.test(html), 'Expected generated HTML, not source or an error payload');
-for (const label of ['Published release · v1.9.0', 'Synthetic walkthrough · No clinical care', 'Local candidate · Not deployed']) {
+for (const label of ['Published release · v1.9.0', 'Synthetic walkthrough · No clinical care', 'Recorded deployment checkpoint · 19 September 2026', 'Local candidate · Not deployed']) {
   check(text.includes(label), `Missing explicit state: ${label}`);
 }
 const walkthrough = section('synthetic-walkthrough', 'ol');
@@ -27,10 +27,13 @@ check(summaries.length === 5, 'Walkthrough must contain five native disclosures'
   check(summaries[index]?.includes(title), `Step ${index + 1}: ${title}`);
 });
 const candidate = section('local-candidate', 'aside');
-for (const label of ['Laboratory submission recovery', 'not available in the public sandbox', 'Not recorded', 'Acknowledgment is not clinical review', 'audio']) {
+for (const label of ['Laboratory submission recovery', 'not a public exam-submission service', 'Not recorded', 'Acknowledgment is not clinical review', 'new transport remains inactive', 'Toolkit V3.4 candidate', '12 synthetic training scenarios', '58 prerecorded clips', 'preserving text simulation', 'does not certify that service or remove existing public audio URLs', 'not a live service-status check', 'Still open: the complete order-to-contact cycle']) {
   check(textOf(candidate).includes(label), `Candidate boundary missing: ${label}`);
 }
-check(!/<(?:a|button|form|input|audio)\b/i.test(candidate), 'Candidate must not offer an operational control');
+check(!/<(?:a|button|form|input|audio|video|iframe)\b/i.test(candidate), 'Candidate must not offer an operational control');
+check(candidate.indexOf('Recorded deployment checkpoint') < candidate.indexOf('Local candidate · Not deployed'), 'Recorded and local states must remain separate and ordered');
+check(!text.includes('laboratory recovery changes that are not deployed'), 'Do not relabel the recorded lab checkpoint as undeployed');
+check(!text.includes('laboratory recovery candidate below'), 'Walkthrough must not relabel the recorded lab checkpoint as a candidate');
 check(!/<(?:form|input|audio|iframe)\b/i.test(walkthrough), 'Explanatory flow must not collect or transmit data');
 check(text.includes('No real contact, delivery or clinical benefit is demonstrated'), 'Missing synthetic outcome limit');
 for (const label of ['AI language', 'Registered rules', 'Human review', 'Optional voice']) {

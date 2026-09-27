@@ -8,7 +8,7 @@
     "build": "next build",
     "postbuild": "node scripts/verify-home.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@heartland/ui": "github:vickymuller-md/heartland-ui#v0.2.3",

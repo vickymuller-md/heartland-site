@@ -233,7 +233,7 @@ function Hero() {
         <div className="md:col-span-7">
           <p className="text-sm font-medium text-signal">Published resources · Toolkit V3.3 · App v1.9.0</p>
           <h1 className="mt-6 text-[clamp(2.6rem,6vw,5rem)] leading-[1.04] tracking-tight text-cool">
-            Heart failure care{' '}<span className="font-display italic text-[#b4372d]">where there's no</span>{' '}cardiologist.
+            Heart failure care{' '}<span className="font-display italic text-[#b4372d]">where there&apos;s no</span>{' '}cardiologist.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-cool/80">
             HEARTLAND connects a published implementation framework, a versioned toolkit and an open-source companion App for rural and resource-limited settings.
@@ -254,7 +254,7 @@ function Hero() {
           <ol className="mt-6 divide-y divide-grid text-base leading-relaxed text-cool/80">
             <li className="py-5"><a href="#evidence" className="flex min-h-11 items-center font-semibold text-cool underline underline-offset-4">01 · Read the sources</a><p className="mt-2">Article, toolkit and software have distinct records and versions.</p></li>
             <li className="py-5"><a href={appHref('/sandbox')} className="flex min-h-11 items-center font-semibold text-cool underline underline-offset-4">02 · Explore the synthetic App</a><p className="mt-2">Try population replay, conversations, evidence and human-controlled drafts.</p></li>
-            <li className="py-5"><a href="#local-candidate" className="flex min-h-11 items-center font-semibold text-cool underline underline-offset-4">03 · Inspect the local candidate</a><p className="mt-2">Understand laboratory recovery changes that are not deployed.</p></li>
+            <li className="py-5"><a href="#local-candidate" className="flex min-h-11 items-center font-semibold text-cool underline underline-offset-4">03 · Inspect implementation status</a><p className="mt-2">Distinguish the recorded deployment checkpoint from new local work and remaining gates.</p></li>
           </ol>
         </aside>
       </div>
@@ -333,7 +333,7 @@ function EvidenceLab() {
         <div className="mt-10 rounded-3xl border border-grid bg-terminal p-5 md:p-8">
           <p className="text-sm font-semibold text-[#b4372d]">Synthetic walkthrough · No clinical care</p>
           <h3 className="mt-3 text-2xl font-semibold text-cool">One answer, five visible handoffs.</h3>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-cool/80">Open a step to inspect this fixed fictional example. This explanation runs no AI, saves no patient record and makes no contact. This is not the laboratory recovery candidate below.</p>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-cool/80">Open a step to inspect this fixed fictional example. This explanation runs no AI, saves no patient record and makes no contact. The dated implementation states below are separate from this illustration.</p>
           <ol id="synthetic-walkthrough" className="mt-6 space-y-3">
             {SANDBOX_JOURNEY.map(item => (
               <li key={item.step}>
@@ -361,7 +361,7 @@ function EvidenceLab() {
             ))}
           </dl>
         </div>
-        <p className="mt-10 text-base leading-relaxed text-cool/80">The published App baseline exposes nine capabilities, grouped below by the five surfaces where they appear.</p>
+        <p className="mt-10 text-base leading-relaxed text-cool/80">The archived App baseline describes nine capabilities, grouped below by five surfaces. This is not a guarantee that every mode is currently enabled; see the separate audio hold and implementation states below.</p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {SANDBOX_CAPABILITIES.map(capability => (
             <article key={capability.label} className="rounded-2xl border border-grid bg-terminal p-6">
@@ -375,17 +375,30 @@ function EvidenceLab() {
           <p className="text-base leading-relaxed text-cool/80">Selected emergency phrases and identifier patterns are screened; supported generated-text paths check selected prescriptive wording. Missing required answers remain visible. These bounded safeguards are not a guarantee that all unsafe input is detected. AI capacity limits and fallbacks apply.</p>
           <a href={appHref('/sandbox')} className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-cool px-6 text-base font-medium text-terminal hover:bg-alert">Explore the published synthetic sandbox →</a>
         </div>
-        <aside id="local-candidate" aria-labelledby="lab-candidate-title" className="mt-10 scroll-mt-24 rounded-3xl border-2 border-dashed border-cool/40 bg-terminal p-6 md:p-8">
-          <p className="text-sm font-semibold text-cool">Local candidate · Not deployed</p>
-          <h3 id="lab-candidate-title" className="mt-3 text-2xl font-semibold text-cool">Laboratory submission recovery</h3>
-          <p className="mt-4 max-w-3xl text-base leading-relaxed text-cool/80">Implemented and tested locally; not available in the public sandbox or hosted workspace. Hosted integration and coordinated rollout remain pending.</p>
-          <dl className="mt-6 grid gap-6 text-base leading-relaxed md:grid-cols-2">
-            <div><dt className="font-semibold text-cool">Collection and reports</dt><dd className="mt-2 text-cool/80">Keep the recorded collection time in reports. Patient-summary printouts label a missing classification “Not recorded”; CSV leaves it blank. Neither export assumes “Normal”.</dd></div>
-            <div><dt className="font-semibold text-cool">Saved result ≠ completed evaluation</dt><dd className="mt-2 text-cool/80">A durable receipt and pending alert evaluation are distinct. Retrying evaluation does not insert a second exam.</dd></div>
-            <div><dt className="font-semibold text-cool">Return without resending</dt><dd className="mt-2 text-cool/80">Check a prepared submission after leaving the page. Recovery reads the saved receipt; it does not retransmit the exam or recreate unsaved values.</dd></div>
-            <div><dt className="font-semibold text-cool">Explicit acknowledgment or cancellation</dt><dd className="mt-2 text-cool/80">Acknowledgment is not clinical review. Protected cancellation rejects a late submission without erasing a saved result.</dd></div>
-          </dl>
-          <p className="mt-6 border-t border-grid pt-5 text-base leading-relaxed text-cool/80">Earlier submissions without a prepared attempt need their exact known identifier. Revised English/Spanish scripts are also local; matching audio review is pending. No new public release is announced here.</p>
+        <aside id="local-candidate" aria-labelledby="lab-candidate-title" className="mt-10 scroll-mt-44 rounded-3xl border-2 border-dashed border-cool/40 bg-terminal p-6 md:scroll-mt-24 md:p-8">
+          <p className="text-sm font-semibold text-cool">Implementation status · Reviewed 24 September 2026</p>
+          <h3 id="lab-candidate-title" className="mt-3 text-2xl font-semibold text-cool">What is recorded, what is local, what is still open.</h3>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-cool/80">An archive, a deployment record and a local candidate are different kinds of evidence. This dated summary is not a live service-status check or authorization for patient care.</p>
+          <div data-testid="recorded-checkpoint" className="mt-6 rounded-2xl border border-grid bg-panel p-5">
+            <p className="text-sm font-semibold text-signal">Recorded deployment checkpoint · 19 September 2026</p>
+            <h4 className="mt-3 text-xl font-semibold text-cool">Laboratory submission recovery</h4>
+            <dl className="mt-4 grid gap-5 text-base leading-relaxed md:grid-cols-2">
+              <div><dt className="font-semibold text-cool">Collection and reports</dt><dd className="mt-2 text-cool/80">The controlled workspace keeps collection time. Patient-summary printouts label a missing classification “Not recorded”; CSV leaves it blank. Neither export assumes “Normal”.</dd></div>
+              <div><dt className="font-semibold text-cool">Save, evaluate, then recover</dt><dd className="mt-2 text-cool/80">A saved result and pending evaluation are distinct. A prepared attempt supports recovery without resending the exam. Acknowledgment is not clinical review; cancellation does not erase a saved result.</dd></div>
+            </dl>
+            <p className="mt-4 text-base leading-relaxed text-cool/80">These are registered-workspace controls, not a public exam-submission service. Earlier submissions without a prepared attempt need their exact known identifier. This checkpoint does not create a new software archive.</p>
+          </div>
+          <div data-testid="unreleased-work" className="mt-6 rounded-2xl border border-dashed border-cool/40 p-5">
+            <p className="text-sm font-semibold text-[#b4372d]">Local candidate · Not deployed</p>
+            <h4 className="mt-3 text-xl font-semibold text-cool">Recovery, ownership and visible pending work</h4>
+            <dl className="mt-4 grid gap-5 text-base leading-relaxed md:grid-cols-2">
+              <div><dt className="font-semibold text-cool">Recover the saved observation</dt><dd className="mt-2 text-cool/80">Local tests cover individual and batch vital/symptom submissions, evaluation recovery and periodic-scan receipts. A retry must not duplicate an observation or hide a pending evaluation.</dd></div>
+              <div><dt className="font-semibold text-cool">Show who can act</dt><dd className="mt-2 text-cool/80">Organization-scoped owner selection, recoverable reassignment requests and restricted exception views make unresolved work visible. A captured notification intent is not a sent message; the new transport remains inactive.</dd></div>
+              <div><dt className="font-semibold text-cool">Rehearse without the App</dt><dd className="mt-2 text-cool/80">Toolkit V3.4 candidate work includes offline readiness worksheets, handoff/contact logs and 12 synthetic training scenarios. Prepared material is not evidence of completed training or clinical adoption.</dd></div>
+              <div><dt className="font-semibold text-cool">Keep unverified audio on hold</dt><dd className="mt-2 text-cool/80">58 prerecorded clips await source-to-sound and language review. The local candidate blocks their playback in three sandbox consumers while preserving text simulation. This hold is separate from optional live voice; it does not certify that service or remove existing public audio URLs.</dd></div>
+            </dl>
+          </div>
+          <p className="mt-6 border-t border-grid pt-5 text-base leading-relaxed text-cool/80">Still open: the complete order-to-contact cycle, durable notification delivery and human contingency, authenticated integration tests, competent clinical/language approvals and coordinated release. No completed clinical cycle, new public release or validated outcome is announced here.</p>
         </aside>
       </div>
     </section>
@@ -612,7 +625,7 @@ function Research() {
             <div className="grid gap-4 sm:grid-cols-2">
               <ResearchCard title="HEARTLAND article" subtitle="Cureus · peer-reviewed technical report" href="https://doi.org/10.7759/cureus.104817" note="Article DOI 10.7759/cureus.104817 · PMID 41948265. Not a clinical validation trial." />
               <ResearchCard title="Toolkit V3.3" subtitle="Zenodo · versioned implementation material" href="https://doi.org/10.5281/zenodo.19101219" note="Version DOI 10.5281/zenodo.19101219. Separate from the journal article and software." />
-              <ResearchCard title="App v1.9.0" subtitle="Zenodo · published software baseline" href="https://doi.org/10.5281/zenodo.22233054" note="Version DOI 10.5281/zenodo.22233054. Does not include the local laboratory recovery candidate." />
+              <ResearchCard title="App v1.9.0" subtitle="Zenodo · published software baseline" href="https://doi.org/10.5281/zenodo.22233054" note="Version DOI 10.5281/zenodo.22233054. Historical archive, distinct from the September deployment checkpoint and the new local candidate." />
               <ResearchCard title="OSF project" subtitle="Project materials and collaboration" href={HEARTLAND_EXTERNAL_LINKS.osf} note="Check each file and its date; a project page is not itself a new validation study." />
               <ResearchCard title="GLP-1 RA · Systematic Review" subtitle="Cureus · PMID 42292722" href="https://doi.org/10.7759/cureus.110621" note="Meta-analysis across the heart failure spectrum." />
               <ResearchCard title="Remote Monitoring · Systematic Review" subtitle="Cureus · PMID 42164012" href="https://doi.org/10.7759/cureus.109198" note="Meta-analysis with trial sequential analysis." />
