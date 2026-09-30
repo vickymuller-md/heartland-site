@@ -178,16 +178,16 @@ const SANDBOX_CAPABILITIES = [
 ];
 
 // Archived software/document identities of each ecosystem resource (Zenodo
-// version DOIs observed on 2026-09-11). The Toolkit and the article keep their
+// version DOIs verified on 2026-09-30). The Toolkit and the article keep their
 // own identities elsewhere on this page; these never stand in for them.
 const ECOSYSTEM_RELEASES: Partial<Record<string, { version: string; doi: string }>> = {
   app: { version: 'v1.9.0', doi: '10.5281/zenodo.22233054' },
-  scoring: { version: 'v1.0.0', doi: '10.5281/zenodo.19634995' },
+  scoring: { version: 'v1.0.2', doi: '10.5281/zenodo.23050660' },
   guide: { version: 'v0.1.0', doi: '10.5281/zenodo.19634993' },
   atlas: { version: 'v0.2.0', doi: '10.5281/zenodo.21323595' },
   redcap: { version: 'v1.0.2', doi: '10.5281/zenodo.22132635' },
-  synthetic: { version: 'v0.2.2', doi: '10.5281/zenodo.22086443' },
-  fhir: { version: 'v0.1.1', doi: '10.5281/zenodo.19634998' },
+  synthetic: { version: 'v0.3.1', doi: '10.5281/zenodo.23051476' },
+  fhir: { version: 'v0.3.0', doi: '10.5281/zenodo.23050675' },
 };
 
 const RESPONSIBILITY_LAYERS = [
@@ -587,7 +587,7 @@ function Ecosystem() {
                   </p>
                   <h3 className="mt-3 text-[17px] font-medium text-cool">{site.id === 'app' ? 'Clinical Implementation App' : site.label}</h3>
                   <p className="mt-3 text-base leading-relaxed text-cool/70">
-                    {site.id === 'app' ? 'Educational companion with synthetic workflows, calculators, bounded AI and human review.' : site.tagline}
+                    {site.id === 'app' ? 'Educational companion with synthetic workflows, calculators, bounded AI and human review.' : site.id === 'scoring' ? 'Ten weighted criteria, 0–18 points. Source archive v1.0.2; the calculator still uses npm v1.0.0. Zod is required. Proposed framework pending validation.' : site.tagline}
                   </p>
                   <p className="mt-6 text-base text-cool/75 transition-colors group-hover:text-[#b4372d]">
                     {site.url.replace('https://', '')} →
@@ -634,7 +634,7 @@ function Research() {
             </div>
             <div className="rounded-2xl border border-grid bg-terminal p-6">
               <h3 className="text-lg font-semibold text-cool">Cite the resource you used.</h3>
-              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.3 DOI for its archived files, or the App v1.9.0 DOI for that software baseline. Local changes have no new published DOI.</p>
+              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.3 DOI for its archived files, or the App v1.9.0 DOI for that software baseline. The companion cards identify the separately archived Scoring v1.0.2, Synthetic v0.3.1 and FHIR v0.3.0 source releases. New App and Toolkit candidates remain unarchived; a software archive is not evidence of clinical validation or a production deployment.</p>
             </div>
           </div>
         </div>

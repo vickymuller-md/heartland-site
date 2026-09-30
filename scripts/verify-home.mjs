@@ -44,9 +44,11 @@ for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.19101219', '10.5281/
 }
 check(text.includes('Toolkit V3.3') && text.includes('App v1.9.0'), 'Toolkit and App versions must be distinct');
 check(text.includes('nine capabilities'), 'Capability count must match the App landing');
-for (const doi of ['10.5281/zenodo.19634995', '10.5281/zenodo.19634993', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.22086443', '10.5281/zenodo.19634998']) {
+for (const doi of ['10.5281/zenodo.23050660', '10.5281/zenodo.19634993', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.23051476', '10.5281/zenodo.23050675']) {
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing companion archive link: ${doi}`);
 }
+check(text.includes('the calculator still uses npm v1.0.0') && text.includes('Zod is required'), 'Scoring source archive must not relabel the npm runtime or omit its dependency');
+check(text.includes('New App and Toolkit candidates remain unarchived'), 'Companion publication must not promote App/Toolkit candidates');
 check(text.includes('Rural Cardiology Desert Atlas'), 'Atlas card must use its published name');
 check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.19101219"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
 check(text.includes('did not evaluate the HEARTLAND App or its AI'), 'Studies must not imply product validation');
