@@ -110,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ul className="mt-4 space-y-1 text-base text-cool/80">{HEARTLAND_NETWORK.map(site => <li key={site.id}><a href={site.url} aria-current={site.id === 'home' ? 'page' : undefined} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.shortLabel}</a></li>)}</ul>
               </nav>
             </div>
-            <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-grid pt-6 text-sm text-cool/80"><p>© {new Date().getFullYear()} Vicky Muller Ferreira, MD · Site source under MIT</p><p>Toolkit V3.3 · App v1.9.0 · Local candidate not deployed</p></div>
+            <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-grid pt-6 text-sm text-cool/80"><p>© {new Date().getFullYear()} Vicky Muller Ferreira, MD · Site source under MIT</p><p>Toolkit V3.3 · App archive v1.9.0 · Deployment 30 Sep 2026</p></div>
           </div>
         </footer>
         <WebAnalytics />

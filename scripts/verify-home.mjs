@@ -17,7 +17,7 @@ function section(id, tag = 'section') {
 }
 
 check(/<!DOCTYPE html>/i.test(html), 'Expected generated HTML, not source or an error payload');
-for (const label of ['Published release · v1.9.0', 'Synthetic walkthrough · No clinical care', 'Recorded deployment checkpoint · 19 September 2026', 'Local candidate · Not deployed']) {
+for (const label of ['Published release · v1.9.0', 'Synthetic walkthrough · No clinical care', 'Recorded deployment checkpoint · 30 September 2026', 'Deployment expansion · Controlled evaluation only']) {
   check(text.includes(label), `Missing explicit state: ${label}`);
 }
 const walkthrough = section('synthetic-walkthrough', 'ol');
@@ -27,13 +27,17 @@ check(summaries.length === 5, 'Walkthrough must contain five native disclosures'
   check(summaries[index]?.includes(title), `Step ${index + 1}: ${title}`);
 });
 const candidate = section('local-candidate', 'aside');
-for (const label of ['Laboratory submission recovery', 'not a public exam-submission service', 'Not recorded', 'Acknowledgment is not clinical review', 'new transport remains inactive', 'Toolkit V3.4 candidate', '12 synthetic training scenarios', '58 prerecorded clips', 'preserving text simulation', 'does not certify that service or remove existing public audio URLs', 'not a live service-status check', 'Still open: the complete order-to-contact cycle']) {
+for (const label of ['Laboratory submission recovery', 'not a public exam-submission service', 'Not recorded', 'Acknowledgment is not clinical review', 'new transport remains inactive', 'Toolkit V3.4 candidate', '12 synthetic training scenarios', '58 prerecorded clips', 'preserving text simulation', 'does not certify that service or remove existing public audio URLs', 'not a live service-status check', 'Still gated: scheduled scans']) {
   check(textOf(candidate).includes(label), `Candidate boundary missing: ${label}`);
 }
 check(!/<(?:a|button|form|input|audio|video|iframe)\b/i.test(candidate), 'Candidate must not offer an operational control');
-check(candidate.indexOf('Recorded deployment checkpoint') < candidate.indexOf('Local candidate · Not deployed'), 'Recorded and local states must remain separate and ordered');
+check(candidate.indexOf('Recorded deployment checkpoint') < candidate.indexOf('Deployment expansion · Controlled evaluation only'), 'Laboratory history and deployment expansion must remain separate and ordered');
 check(!text.includes('laboratory recovery changes that are not deployed'), 'Do not relabel the recorded lab checkpoint as undeployed');
 check(!text.includes('laboratory recovery candidate below'), 'Walkthrough must not relabel the recorded lab checkpoint as a candidate');
+for (const label of ['Periodic-scan recovery is implemented but remains disabled', 'synthetic authenticated integration checks passed in an isolated environment', 'Trace the documented workflow', 'Education and notification preferences']) {
+  check(textOf(candidate).includes(label), `Deployment qualification missing: ${label}`);
+}
+check(!text.includes('Local candidate · Not deployed') && !text.includes('Local candidate not deployed'), 'Deployed controls must not remain labelled local-only');
 check(!/<(?:form|input|audio|iframe)\b/i.test(walkthrough), 'Explanatory flow must not collect or transmit data');
 check(text.includes('No real contact, delivery or clinical benefit is demonstrated'), 'Missing synthetic outcome limit');
 for (const label of ['AI language', 'Registered rules', 'Human review', 'Optional voice']) {
@@ -48,7 +52,7 @@ for (const doi of ['10.5281/zenodo.23050660', '10.5281/zenodo.19634993', '10.528
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing companion archive link: ${doi}`);
 }
 check(text.includes('the calculator still uses npm v1.0.0') && text.includes('Zod is required'), 'Scoring source archive must not relabel the npm runtime or omit its dependency');
-check(text.includes('New App and Toolkit candidates remain unarchived'), 'Companion publication must not promote App/Toolkit candidates');
+check(text.includes('The current App deployment and Toolkit V3.4 candidate remain unarchived'), 'Companion publication must not promote App/Toolkit candidates');
 check(text.includes('Rural Cardiology Desert Atlas'), 'Atlas card must use its published name');
 check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.19101219"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
 check(text.includes('did not evaluate the HEARTLAND App or its AI'), 'Studies must not imply product validation');
