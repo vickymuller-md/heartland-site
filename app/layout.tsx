@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: '%s · HEARTLAND Protocol',
   },
   description:
-    'Explore the HEARTLAND article, Toolkit V3.4.1 and App v1.10.0: synthetic workflows, bounded AI, reviewed demonstration audio, human review and explicit operational limits for rural heart failure implementation research.',
+    'Explore the HEARTLAND article, Toolkit V3.4.1 and App v1.10.1: synthetic workflows, bounded AI, reviewed demonstration audio, human review and explicit operational limits for rural heart failure implementation research.',
   openGraph: {
     title: 'HEARTLAND Protocol',
     description:
@@ -100,7 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ul className="mt-4 space-y-1 text-base text-cool/80">
                   <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://doi.org/10.7759/cureus.104817">HEARTLAND article</a></li>
                   <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://doi.org/10.5281/zenodo.23076249">Toolkit V3.4.1</a></li>
-                  <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://doi.org/10.5281/zenodo.23074656">App v1.10.0 archive</a></li>
+                  <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://doi.org/10.5281/zenodo.23076550">App v1.10.1 archive</a></li>
                   <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://doi.org/10.17605/OSF.IO/YUSGH">OSF project</a></li>
                   <li><a className="inline-flex min-h-11 items-center underline underline-offset-4" href="https://orcid.org/0009-0009-1099-5690">ORCID profile</a></li>
                 </ul>
@@ -110,7 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ul className="mt-4 space-y-1 text-base text-cool/80">{HEARTLAND_NETWORK.map(site => <li key={site.id}><a href={site.url} aria-current={site.id === 'home' ? 'page' : undefined} className="inline-flex min-h-11 items-center underline underline-offset-4">{site.shortLabel}</a></li>)}</ul>
               </nav>
             </div>
-            <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-grid pt-6 text-sm text-cool/80"><p>© {new Date().getFullYear()} Vicky Muller Ferreira, MD · Site source under MIT</p><p>Toolkit V3.4.1 · App archive v1.10.0 · Deployment 1 Oct 2026</p></div>
+            <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-grid pt-6 text-sm text-cool/80"><p>© {new Date().getFullYear()} Vicky Muller Ferreira, MD · Site source under MIT</p><p>Toolkit V3.4.1 · App archive v1.10.1 · Deployment 1 Oct 2026</p></div>
           </div>
         </footer>
         <WebAnalytics />

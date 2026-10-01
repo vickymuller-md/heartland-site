@@ -181,9 +181,9 @@ const SANDBOX_CAPABILITIES = [
 // version DOIs verified on 2026-09-30). The Toolkit and the article keep their
 // own identities elsewhere on this page; these never stand in for them.
 const ECOSYSTEM_RELEASES: Partial<Record<string, { version: string; doi: string }>> = {
-  app: { version: 'v1.10.0', doi: '10.5281/zenodo.23074656' },
+  app: { version: 'v1.10.1', doi: '10.5281/zenodo.23076550' },
   scoring: { version: 'v1.0.2', doi: '10.5281/zenodo.23050660' },
-  guide: { version: 'v0.2.1', doi: '10.5281/zenodo.23074675' },
+  guide: { version: 'v0.2.2', doi: '10.5281/zenodo.23076500' },
   atlas: { version: 'v0.2.0', doi: '10.5281/zenodo.21323595' },
   redcap: { version: 'v1.0.2', doi: '10.5281/zenodo.22132635' },
   synthetic: { version: 'v0.3.1', doi: '10.5281/zenodo.23051476' },
@@ -232,7 +232,7 @@ function Hero() {
     <section className="border-b border-grid bg-terminal">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 py-20 md:grid-cols-12 md:py-28">
         <div className="md:col-span-7">
-          <p className="text-sm font-medium text-signal">Published resources · Toolkit V3.4.1 · App v1.10.0</p>
+          <p className="text-sm font-medium text-signal">Published resources · Toolkit V3.4.1 · App v1.10.1</p>
           <h1 className="mt-6 text-[clamp(2.6rem,6vw,5rem)] leading-[1.04] tracking-tight text-cool">
             Heart failure care{' '}<span className="font-display italic text-[#b4372d]">where there&apos;s no</span>{' '}cardiologist.
           </h1>
@@ -323,7 +323,7 @@ function EvidenceLab() {
   return (
     <section id="evidence-lab" className="scroll-mt-24 border-b border-grid bg-panel">
       <div className="mx-auto max-w-[1200px] px-6 py-24">
-        <p className="text-sm font-semibold text-signal">Published release · v1.10.0</p>
+        <p className="text-sm font-semibold text-signal">Published release · v1.10.1</p>
         <h2 className="mt-4 max-w-4xl text-[clamp(2rem,4.4vw,3.7rem)] leading-[1.08] tracking-tight text-cool">
           Follow the evidence.{' '}<span className="font-display italic text-[#b4372d]">Keep people in charge.</span>
         </h2>
@@ -657,7 +657,7 @@ function Research() {
             <div className="grid gap-4 sm:grid-cols-2">
               <ResearchCard title="HEARTLAND article" subtitle="Cureus · peer-reviewed technical report" href="https://doi.org/10.7759/cureus.104817" note="Article DOI 10.7759/cureus.104817 · PMID 41948265. Not a clinical validation trial." />
               <ResearchCard title="Toolkit V3.4.1" subtitle="Zenodo · versioned implementation material" href="https://doi.org/10.5281/zenodo.23076249" note="Version DOI 10.5281/zenodo.23076249. Separate from the journal article and software." />
-              <ResearchCard title="App v1.10.0" subtitle="Zenodo · published software baseline" href="https://doi.org/10.5281/zenodo.23074656" note="Version DOI 10.5281/zenodo.23074656. Immutable source archive; deployed status is verified separately." />
+              <ResearchCard title="App v1.10.1" subtitle="Zenodo · published software baseline" href="https://doi.org/10.5281/zenodo.23076550" note="Version DOI 10.5281/zenodo.23076550. Immutable source archive; deployed status is verified separately." />
               <ResearchCard title="OSF project" subtitle="Project materials and collaboration" href={HEARTLAND_EXTERNAL_LINKS.osf} note="Check each file and its date; a project page is not itself a new validation study." />
               <ResearchCard title="GLP-1 RA · Systematic Review" subtitle="Cureus · PMID 42292722" href="https://doi.org/10.7759/cureus.110621" note="Meta-analysis across the heart failure spectrum." />
               <ResearchCard title="Remote Monitoring · Systematic Review" subtitle="Cureus · PMID 42164012" href="https://doi.org/10.7759/cureus.109198" note="Meta-analysis with trial sequential analysis." />
@@ -666,7 +666,7 @@ function Research() {
             </div>
             <div className="rounded-2xl border border-grid bg-terminal p-6">
               <h3 className="text-lg font-semibold text-cool">Cite the resource you used.</h3>
-              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.4.1 DOI for its archived files, or the App v1.10.0 DOI for that software baseline. The companion cards identify the separately archived Pocket Guide v0.2.1, Scoring v1.0.2, Synthetic v0.3.1 and FHIR v0.3.0 source releases. Toolkit V3.4.1, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives; a software archive is not evidence of clinical validation or a production deployment.</p>
+              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.4.1 DOI for its archived files, or the App v1.10.1 DOI for that software baseline. The companion cards identify the separately archived Pocket Guide v0.2.2, Scoring v1.0.2, Synthetic v0.3.1 and FHIR v0.3.0 source releases. Toolkit V3.4.1, App v1.10.1 and Pocket Guide v0.2.2 have separate published archives; a software archive is not evidence of clinical validation or a production deployment.</p>
             </div>
           </div>
         </div>

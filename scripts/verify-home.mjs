@@ -17,7 +17,7 @@ function section(id, tag = 'section') {
 }
 
 check(/<!DOCTYPE html>/i.test(html), 'Expected generated HTML, not source or an error payload');
-for (const label of ['Published release · v1.10.0', 'Synthetic walkthrough · No clinical care', 'Recorded deployment checkpoint · 30 September 2026', 'Deployment expansion · Controlled evaluation only']) {
+for (const label of ['Published release · v1.10.1', 'Synthetic walkthrough · No clinical care', 'Recorded deployment checkpoint · 30 September 2026', 'Deployment expansion · Controlled evaluation only']) {
   check(text.includes(label), `Missing explicit state: ${label}`);
 }
 const walkthrough = section('synthetic-walkthrough', 'ol');
@@ -43,10 +43,10 @@ check(text.includes('No real contact, delivery or clinical benefit is demonstrat
 for (const label of ['AI language', 'Registered rules', 'Human review', 'Optional voice']) {
   check(text.includes(label), `Missing responsibility: ${label}`);
 }
-for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.23076249', '10.5281/zenodo.23074656']) {
+for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.23076249', '10.5281/zenodo.23076550']) {
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing exact publication link: ${doi}`);
 }
-check(text.includes('Toolkit V3.4.1') && text.includes('App v1.10.0'), 'Toolkit and App versions must be distinct');
+check(text.includes('Toolkit V3.4.1') && text.includes('App v1.10.1'), 'Toolkit and App versions must be distinct');
 check(!/Toolkit V3\.4(?!\.1)|23073640/.test(visible), 'Header, metadata and footer must also reference the successor Toolkit');
 check(!/Toolkit V3\.3|App v1\.9\.0|audio hold/.test(text) && !/19101219|22233054|19634993/.test(visible), 'Superseded release labels and links must not remain on the current home');
 check(text.includes('nine capabilities'), 'Capability count must match the App landing');
@@ -56,11 +56,11 @@ for (const label of ['Pharmacy at any tier', 'Recognize, assess, authorize', 'Re
 }
 check(visible.includes('href="https://app.heartlandprotocol.org/guide#implementation-readiness"'), 'Missing public training guide');
 check(visible.includes('href="https://guide.heartlandprotocol.org/readiness"'), 'Missing printable pocket preparation page');
-for (const doi of ['10.5281/zenodo.23050660', '10.5281/zenodo.23074675', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.23051476', '10.5281/zenodo.23050675']) {
+for (const doi of ['10.5281/zenodo.23050660', '10.5281/zenodo.23076500', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.23051476', '10.5281/zenodo.23050675']) {
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing companion archive link: ${doi}`);
 }
 check(text.includes('the calculator still uses npm v1.0.0') && text.includes('Zod is required'), 'Scoring source archive must not relabel the npm runtime or omit its dependency');
-check(text.includes('Toolkit V3.4.1, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives'), 'Published archives must identify their separate versions');
+check(text.includes('Toolkit V3.4.1, App v1.10.1 and Pocket Guide v0.2.2 have separate published archives'), 'Published archives must identify their separate versions');
 check(text.includes('Rural Cardiology Desert Atlas'), 'Atlas card must use its published name');
 check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.23076249"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
 check(text.includes('did not evaluate the HEARTLAND App or its AI'), 'Studies must not imply product validation');
