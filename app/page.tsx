@@ -209,6 +209,7 @@ export default function HomePage() {
       <Problem />
       <ModuleIndex />
       <EvidenceLab />
+      <OperationalClarifications />
       <ModuleDeepDives />
       <Tiers />
       <ReadinessPlan />
@@ -231,7 +232,7 @@ function Hero() {
     <section className="border-b border-grid bg-terminal">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 py-20 md:grid-cols-12 md:py-28">
         <div className="md:col-span-7">
-          <p className="text-sm font-medium text-signal">Published resources · Toolkit V3.4 · App v1.10.0</p>
+          <p className="text-sm font-medium text-signal">Published resources · Toolkit V3.4.1 · App v1.10.0</p>
           <h1 className="mt-6 text-[clamp(2.6rem,6vw,5rem)] leading-[1.04] tracking-tight text-cool">
             Heart failure care{' '}<span className="font-display italic text-[#b4372d]">where there&apos;s no</span>{' '}cardiologist.
           </h1>
@@ -240,7 +241,7 @@ function Hero() {
             Explore the workflow with fictional cases; clinical judgment stays with people.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href="https://doi.org/10.5281/zenodo.23073640" className="inline-flex min-h-12 items-center rounded-full bg-cool px-6 text-base font-medium text-terminal hover:bg-alert">Read Toolkit V3.4 →</a>
+            <a href="https://doi.org/10.5281/zenodo.23076249" className="inline-flex min-h-12 items-center rounded-full bg-cool px-6 text-base font-medium text-terminal hover:bg-alert">Read Toolkit V3.4.1 →</a>
             <a href="#evidence-lab" className="inline-flex min-h-12 items-center rounded-full border border-cool/30 px-6 text-base font-medium text-cool hover:bg-panel">Follow one fictional case ↓</a>
           </div>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-cool/80">
@@ -396,12 +397,41 @@ function EvidenceLab() {
               <div><dt className="font-semibold text-cool">Show who can act</dt><dd className="mt-2 text-cool/80">Organization-scoped owner selection, recoverable reassignment requests and restricted exception views make unresolved work visible. A captured notification intent is not a sent message; the new transport remains inactive.</dd></div>
               <div><dt className="font-semibold text-cool">Trace the documented workflow</dt><dd className="mt-2 text-cool/80">Requests, laboratory source versions, human review records and contact documentation retain separate receipts and unresolved barriers. A documented step does not prove external delivery or completed care.</dd></div>
               <div><dt className="font-semibold text-cool">Education and notification preferences</dt><dd className="mt-2 text-cool/80">Education responses use recoverable, session-bound submissions. Notification preferences are updated through authenticated, serialized requests. A saved response is not a clinical assessment; a preference is not proof that a message was delivered.</dd></div>
-              <div><dt className="font-semibold text-cool">Rehearse without the App</dt><dd className="mt-2 text-cool/80">Published Toolkit V3.4 is accompanied by offline readiness worksheets, handoff/contact logs and 12 synthetic training scenarios. Prepared material is not evidence of completed training or clinical adoption; prototype cards retain their stated distribution restrictions.</dd></div>
+              <div><dt className="font-semibold text-cool">Rehearse without the App</dt><dd className="mt-2 text-cool/80">Published Toolkit V3.4.1 is accompanied by offline readiness worksheets, handoff/contact logs and 12 synthetic training scenarios. Prepared material is not evidence of completed training or clinical adoption; prototype cards retain their stated distribution restrictions.</dd></div>
               <div><dt className="font-semibold text-cool">Listen to bounded synthetic demonstrations</dt><dd className="mt-2 text-cool/80">58 prerecorded clips have recording-specific authorization for synthetic sandbox playback, while preserving text simulation. Clinical script acceptance, automated source-to-transcript checks and release authorization are recorded separately. This is not human-listening certification or patient communication. Only verified immutable recordings play; changed or revoked recordings remain blocked.</dd></div>
             </dl>
           </div>
           <p className="mt-6 border-t border-grid pt-5 text-base leading-relaxed text-cool/80">Verification: synthetic authenticated integration checks passed in an isolated environment; hosted schema and read contracts were checked at deployment. Still gated: scheduled scans, external notification delivery and institution-specific operational approval. Script acceptance and synthetic audio release do not authorize real-patient use. Consult the publication section for the separately archived versions. No completed clinical cycle, real-world activation or validated outcome is claimed.</p>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+function OperationalClarifications() {
+  return (
+    <section id="operational-clarifications" className="border-b border-grid bg-panel">
+      <div className="mx-auto max-w-[1200px] px-6 py-16">
+        <p className="text-sm uppercase tracking-[0.2em] text-cool/75">Operational clarification</p>
+        <h2 className="mt-3 font-display text-3xl sm:text-4xl">Same clinical goal. Explicit human responsibility.</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {[
+            ['Pharmacy at any tier', 'Community, ambulatory or remote pharmacists may participate when available. Define reconciliation, teaching, access, monitoring and recommendation roles without assuming prescribing authority.'],
+            ['Recognize, assess, authorize', 'Trained observers raise concerns; qualified professionals assess them within scope. A title, certificate or software permission alone does not authorize medication changes or disposition.'],
+            ['Referral with context', 'Distinguish planned consultation, urgent assessment and advanced-HF/inpatient evaluation. Retain ownership until an accepted transfer; a request is not completed care.'],
+            ['Prepare and rehearse', 'Four preparation steps, printable worksheets and 12 synthetic scenarios make coverage, communication and recovery gaps visible. Material prepared is not training delivered or clinical readiness.'],
+          ].map(([title, description]) => (
+            <article key={title} className="rounded-2xl border border-grid bg-terminal p-5">
+              <h3 className="font-semibold">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-cool/80">{description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a className="inline-flex min-h-11 items-center rounded-full bg-cool px-5 py-3 text-sm text-terminal" href="https://app.heartlandprotocol.org/guide#implementation-readiness">Explore local readiness and training</a>
+          <a className="inline-flex min-h-11 items-center rounded-full border border-cool px-5 py-3 text-sm" href="https://guide.heartlandprotocol.org/readiness">Open the printable pocket reference</a>
+        </div>
+        <p className="mt-4 text-sm text-cool/75">Resource tier changes delivery support, not clinically indicated care. No patient pilot, institutional adoption or clinical outcome is demonstrated.</p>
       </div>
     </section>
   );
@@ -626,7 +656,7 @@ function Research() {
           <div className="space-y-5 md:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2">
               <ResearchCard title="HEARTLAND article" subtitle="Cureus · peer-reviewed technical report" href="https://doi.org/10.7759/cureus.104817" note="Article DOI 10.7759/cureus.104817 · PMID 41948265. Not a clinical validation trial." />
-              <ResearchCard title="Toolkit V3.4" subtitle="Zenodo · versioned implementation material" href="https://doi.org/10.5281/zenodo.23073640" note="Version DOI 10.5281/zenodo.23073640. Separate from the journal article and software." />
+              <ResearchCard title="Toolkit V3.4.1" subtitle="Zenodo · versioned implementation material" href="https://doi.org/10.5281/zenodo.23076249" note="Version DOI 10.5281/zenodo.23076249. Separate from the journal article and software." />
               <ResearchCard title="App v1.10.0" subtitle="Zenodo · published software baseline" href="https://doi.org/10.5281/zenodo.23074656" note="Version DOI 10.5281/zenodo.23074656. Immutable source archive; deployed status is verified separately." />
               <ResearchCard title="OSF project" subtitle="Project materials and collaboration" href={HEARTLAND_EXTERNAL_LINKS.osf} note="Check each file and its date; a project page is not itself a new validation study." />
               <ResearchCard title="GLP-1 RA · Systematic Review" subtitle="Cureus · PMID 42292722" href="https://doi.org/10.7759/cureus.110621" note="Meta-analysis across the heart failure spectrum." />
@@ -636,7 +666,7 @@ function Research() {
             </div>
             <div className="rounded-2xl border border-grid bg-terminal p-6">
               <h3 className="text-lg font-semibold text-cool">Cite the resource you used.</h3>
-              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.4 DOI for its archived files, or the App v1.10.0 DOI for that software baseline. The companion cards identify the separately archived Pocket Guide v0.2.1, Scoring v1.0.2, Synthetic v0.3.1 and FHIR v0.3.0 source releases. Toolkit V3.4, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives; a software archive is not evidence of clinical validation or a production deployment.</p>
+              <p className="mt-3 text-base leading-relaxed text-cool/80">Use the article DOI for the journal report, the Toolkit V3.4.1 DOI for its archived files, or the App v1.10.0 DOI for that software baseline. The companion cards identify the separately archived Pocket Guide v0.2.1, Scoring v1.0.2, Synthetic v0.3.1 and FHIR v0.3.0 source releases. Toolkit V3.4.1, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives; a software archive is not evidence of clinical validation or a production deployment.</p>
             </div>
           </div>
         </div>
@@ -870,7 +900,7 @@ function ClosingCta() {
             title="Read"
             body="The versioned eight-module implementation toolkit. The peer-reviewed article is a separate publication."
             ctaLabel="Access on Zenodo"
-            ctaHref="https://doi.org/10.5281/zenodo.23073640"
+            ctaHref="https://doi.org/10.5281/zenodo.23076249"
           />
           <ClosingCard
             title="Explore"

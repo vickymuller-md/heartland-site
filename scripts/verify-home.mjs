@@ -27,7 +27,7 @@ check(summaries.length === 5, 'Walkthrough must contain five native disclosures'
   check(summaries[index]?.includes(title), `Step ${index + 1}: ${title}`);
 });
 const candidate = section('local-candidate', 'aside');
-for (const label of ['Laboratory submission recovery', 'not a public exam-submission service', 'Not recorded', 'Acknowledgment is not clinical review', 'new transport remains inactive', 'Published Toolkit V3.4', '12 synthetic training scenarios', '58 prerecorded clips', 'preserving text simulation', 'not human-listening certification or patient communication', 'changed or revoked recordings remain blocked', 'not a live service-status check', 'Still gated: scheduled scans']) {
+for (const label of ['Laboratory submission recovery', 'not a public exam-submission service', 'Not recorded', 'Acknowledgment is not clinical review', 'new transport remains inactive', 'Published Toolkit V3.4.1', '12 synthetic training scenarios', '58 prerecorded clips', 'preserving text simulation', 'not human-listening certification or patient communication', 'changed or revoked recordings remain blocked', 'not a live service-status check', 'Still gated: scheduled scans']) {
   check(textOf(candidate).includes(label), `Candidate boundary missing: ${label}`);
 }
 check(!/<(?:a|button|form|input|audio|video|iframe)\b/i.test(candidate), 'Candidate must not offer an operational control');
@@ -43,19 +43,26 @@ check(text.includes('No real contact, delivery or clinical benefit is demonstrat
 for (const label of ['AI language', 'Registered rules', 'Human review', 'Optional voice']) {
   check(text.includes(label), `Missing responsibility: ${label}`);
 }
-for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.23073640', '10.5281/zenodo.23074656']) {
+for (const doi of ['10.7759/cureus.104817', '10.5281/zenodo.23076249', '10.5281/zenodo.23074656']) {
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing exact publication link: ${doi}`);
 }
-check(text.includes('Toolkit V3.4') && text.includes('App v1.10.0'), 'Toolkit and App versions must be distinct');
+check(text.includes('Toolkit V3.4.1') && text.includes('App v1.10.0'), 'Toolkit and App versions must be distinct');
+check(!/Toolkit V3\.4(?!\.1)|23073640/.test(visible), 'Header, metadata and footer must also reference the successor Toolkit');
 check(!/Toolkit V3\.3|App v1\.9\.0|audio hold/.test(text) && !/19101219|22233054|19634993/.test(visible), 'Superseded release labels and links must not remain on the current home');
 check(text.includes('nine capabilities'), 'Capability count must match the App landing');
+const operational = textOf(section('operational-clarifications'));
+for (const label of ['Pharmacy at any tier', 'Recognize, assess, authorize', 'Referral with context', '12 synthetic scenarios', 'not training delivered or clinical readiness', 'Resource tier changes delivery support, not clinically indicated care']) {
+  check(operational.includes(label), `Operational clarification missing: ${label}`);
+}
+check(visible.includes('href="https://app.heartlandprotocol.org/guide#implementation-readiness"'), 'Missing public training guide');
+check(visible.includes('href="https://guide.heartlandprotocol.org/readiness"'), 'Missing printable pocket preparation page');
 for (const doi of ['10.5281/zenodo.23050660', '10.5281/zenodo.23074675', '10.5281/zenodo.21323595', '10.5281/zenodo.22132635', '10.5281/zenodo.23051476', '10.5281/zenodo.23050675']) {
   check(visible.includes(`href="https://doi.org/${doi}"`), `Missing companion archive link: ${doi}`);
 }
 check(text.includes('the calculator still uses npm v1.0.0') && text.includes('Zod is required'), 'Scoring source archive must not relabel the npm runtime or omit its dependency');
-check(text.includes('Toolkit V3.4, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives'), 'Published archives must identify their separate versions');
+check(text.includes('Toolkit V3.4.1, App v1.10.0 and Pocket Guide v0.2.1 have separate published archives'), 'Published archives must identify their separate versions');
 check(text.includes('Rural Cardiology Desert Atlas'), 'Atlas card must use its published name');
-check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.23073640"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
+check(!/href="https:\/\/doi\.org\/10\.5281\/zenodo\.23076249"[^>]*>[^<]*(?:App|Pocket|REDCap|FHIR|Scoring|Synthetic|Atlas)/.test(visible), 'Protocol DOI must not label a companion');
 check(text.includes('did not evaluate the HEARTLAND App or its AI'), 'Studies must not imply product validation');
 check(visible.includes('href="https://app.heartlandprotocol.org/sandbox?utm_source=heartlandprotocol.org&amp;utm_medium=referral&amp;utm_campaign=ecosystem_navigation"'), 'Preserve the sandbox referral destination');
 check(!/18566403|v3\.2|Not a medical device|No patient health information is ever stored|first titration in 14 days|same clinical endpoint as a smart-home sensor|Initiate ARNI|98\.1%|outlives|net revenue|decision.support PWA/i.test(text), 'Stale identity, promotional efficacy or activation claim remains');
